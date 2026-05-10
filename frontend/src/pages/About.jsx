@@ -1,231 +1,187 @@
-import React, { useEffect } from 'react';
-import Header from '../components/Header';
-import Navigation from '../components/Navigation';
-import Footer from '../components/Footer';
+import PageShell from '../components/PageShell';
 
 const About = () => {
-    useEffect(() => {
-        // Initialize animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-        
-        const animateElements = document.querySelectorAll('.fade-in');
-        animateElements.forEach(el => {
-            observer.observe(el);
-        });
+    const objectives = [
+        {
+            title: 'Afforestation',
+            desc: 'Promoting and executing large-scale afforestation projects to systematically increase the forest cover across Madhya Pradesh.',
+            icon: 'fa-tree'
+        },
+        {
+            title: 'Forest Development',
+            desc: 'Undertaking systematic development and management of forest resources for sustainable economic and ecological benefits.',
+            icon: 'fa-chart-line'
+        },
+        {
+            title: 'Scientific Management',
+            desc: 'Implementing updated technology and scientific approaches for the protection and better management of dense forest areas.',
+            icon: 'fa-microscope'
+        },
+        {
+            title: 'Conservation',
+            desc: 'Focusing on the conservation of forests, forest produce, and wildlife, including initiatives to rehabilitate degraded land like mined-out areas.',
+            icon: 'fa-leaf'
+        },
+        {
+            title: 'Community Involvement',
+            desc: 'Connecting local communities and forest dwellers with conservation activities, ensuring livelihood generation through Joint Forest Management.',
+            icon: 'fa-users'
+        }
+    ];
 
-        // Counter animation
-        const animateCounter = (element) => {
-            const target = parseInt(element.getAttribute('data-target'));
-            const duration = 2000;
-            const step = target / (duration / 16);
-            let current = 0;
-            
-            const updateCounter = () => {
-                current += step;
-                if (current < target) {
-                    element.textContent = Math.floor(current).toLocaleString();
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    element.textContent = target.toLocaleString();
-                }
-            };
-            
-            updateCounter();
-        };
-
-        const counters = document.querySelectorAll('.counter');
-        counters.forEach(counter => {
-            const counterObserver = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounter(entry.target);
-                        counterObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            counterObserver.observe(counter);
-        });
-    }, []);
+    const boardMembers = [
+        { name: 'Smt. Archana Shukla', role: 'Chairperson', desc: 'Providing strategic leadership and governance oversight.' },
+        { name: 'Shri Vijay Kumar Namdeo Ambade', role: 'Managing Director', desc: 'Overseeing daily operations and execution of statewide forestry projects.' },
+        { name: 'Shri Ashok Baranwal', role: 'Additional Chief Secretary (Forests)', desc: 'State Government Representative.' },
+        { name: 'Dr. R. K. Gupta', role: 'Principal Chief Conservator of Forests', desc: 'Technical and Ecological Advisor.' }
+    ];
 
     return (
-        <div className="min-h-screen flex flex-col">
-            <Header />
-            <Navigation />
-            <main className="flex-1">
-                {/* Page Header */}
-                <section className="bg-gradient-to-r from-green-700 to-green-900 py-16">
-                    <div className="container mx-auto px-4">
-                        <div className="text-white text-center">
-                            <h2 className="text-4xl font-bold mb-4">About MPFSDC</h2>
-                            <p className="text-xl">Sustainable Forest Management for a Greener Tomorrow</p>
-                        </div>
-                    </div>
-                </section>
+        <PageShell>
+            {/* Hero Section */}
+            <section className="bg-olive-900 text-beige-50 py-16 md:py-24 border-b-4 border-gold-500">
+                <div className="container mx-auto px-4 max-w-6xl">
+                    <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-[0.2em] text-olive-900 bg-gold-400 rounded-full">ESTABLISHED JULY 24, 1975</span>
+                    <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-gold-300">Company Profile</h1>
+                    <p className="text-lg md:text-xl text-beige-200 max-w-3xl leading-relaxed">
+                        Madhya Pradesh Rajya Van Vikas Nigam Limited (MPRVVN) is a premier state government undertaking dedicated to the scientific management, conservation, and development of forest wealth in Madhya Pradesh.
+                    </p>
+                </div>
+            </section>
 
-                {/* About Content */}
-                <div className="py-16">
-                    <div className="container mx-auto px-4">
-                        {/* Welcome Section */}
-                        <section className="mb-16">
-                            <div className="grid md:grid-cols-2 gap-12 items-center">
-                                <div className="fade-in">
-                                    <h3 className="text-3xl font-bold mb-6 text-green-800">Welcome to MPFSDC</h3>
-                                    <p className="text-gray-700 mb-4 text-lg leading-relaxed">
-                                        Madhya Pradesh Forest State Development Corporation (MPFSDC), established in 1985 under the Companies Act, 1956, is a wholly-owned Government of Madhya Pradesh undertaking. The corporation was formed with the primary objective of promoting sustainable forest management and conservation while ensuring economic development of the state.
-                                    </p>
-                                    <p className="text-gray-700 mb-4 text-lg leading-relaxed">
-                                        With over three decades of dedicated service, MPFSDC has emerged as a leading organization in forest development, managing vast forest resources across the state. Our commitment to environmental conservation and sustainable development has earned us recognition as a pioneer in the field of forest management.
-                                    </p>
-                                    <div className="grid grid-cols-2 gap-4 mt-6">
-                                        <div className="bg-green-50 p-4 rounded-lg">
-                                            <i className="fas fa-calendar text-green-700 text-2xl mb-2"></i>
-                                            <h4 className="font-semibold text-green-800">Established</h4>
-                                            <p className="text-gray-700">1985</p>
-                                        </div>
-                                        <div className="bg-green-50 p-4 rounded-lg">
-                                            <i className="fas fa-building text-green-700 text-2xl mb-2"></i>
-                                            <h4 className="font-semibold text-green-800">Headquarters</h4>
-                                            <p className="text-gray-700">Bhopal, M.P.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="fade-in">
-                                    <div className="bg-white p-8 rounded-lg shadow-lg">
-                                        <h4 className="text-2xl font-bold mb-6 text-green-800">Key Achievements</h4>
-                                        <div className="space-y-4">
-                                            <div className="flex items-start space-x-3">
-                                                <i className="fas fa-check-circle text-green-600 text-xl mt-1"></i>
-                                                <div>
-                                                    <h5 className="font-semibold">FSC Certification</h5>
-                                                    <p className="text-gray-600">First forest corporation in India to achieve Forest Stewardship Council certification</p>
-                                                </div>
-                                            </div>
-                                            <div className="flex items-start space-x-3">
-                                                <i className="fas fa-check-circle text-green-600 text-xl mt-1"></i>
-                                                <div>
-                                                    <h5 className="font-semibold">2.5 Million Hectares</h5>
-                                                    <p className="text-gray-600">Forest area under sustainable management</p>
-                                                </div>
-                                            </div>
-                                            <div className="flex items-start space-x-3">
-                                                <i className="fas fa-check-circle text-green-600 text-xl mt-1"></i>
-                                                <div>
-                                                    <h5 className="font-semibold">75,000 m³ Annual Production</h5>
-                                                    <p className="text-gray-600">Sustainable timber and bamboo production</p>
-                                                </div>
-                                            </div>
-                                            <div className="flex items-start space-x-3">
-                                                <i className="fas fa-check-circle text-green-600 text-xl mt-1"></i>
-                                                <div>
-                                                    <h5 className="font-semibold">50,000+ Employment</h5>
-                                                    <p className="text-gray-600">Direct and indirect employment opportunities created</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        {/* Vision & Mission */}
-                        <section className="mb-16">
-                            <div className="bg-white rounded-lg shadow-lg p-8">
-                                <h3 className="text-3xl font-bold mb-8 text-center text-green-800">Vision & Mission</h3>
-                                <div className="grid md:grid-cols-2 gap-8">
-                                    <div className="fade-in">
-                                        <div className="text-center mb-4">
-                                            <i className="fas fa-eye text-green-700 text-4xl"></i>
-                                        </div>
-                                        <h4 className="text-xl font-bold mb-4 text-green-800 text-center">Our Vision</h4>
-                                        <p className="text-gray-700 leading-relaxed">
-                                            To be the leading forest development corporation in India, setting benchmarks in sustainable forest management, biodiversity conservation, and community development while contributing significantly to the state's economic growth and environmental sustainability.
-                                        </p>
-                                    </div>
-                                    <div className="fade-in">
-                                        <div className="text-center mb-4">
-                                            <i className="fas fa-bullseye text-green-700 text-4xl"></i>
-                                        </div>
-                                        <h4 className="text-xl font-bold mb-4 text-green-800 text-center">Our Mission</h4>
-                                        <p className="text-gray-700 leading-relaxed">
-                                            To manage and develop forest resources through scientific methods, promote afforestation and conservation, ensure sustainable utilization of forest produce, and empower local communities while maintaining ecological balance and contributing to the nation's environmental goals.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        {/* Leadership */}
-                        <section className="mb-16">
-                            <h3 className="text-3xl font-bold mb-8 text-center text-green-800">Leadership Team</h3>
-                            <div className="grid md:grid-cols-3 gap-8">
-                                <div className="bg-white rounded-lg shadow-lg p-6 text-center fade-in">
-                                    <div className="w-24 h-24 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                                        <i className="fas fa-user-tie text-green-700 text-3xl"></i>
-                                    </div>
-                                    <h4 className="text-xl font-bold mb-2">Shri. Arvind Singh Tomar</h4>
-                                    <p className="text-green-700 font-semibold mb-2">Managing Director</p>
-                                    <p className="text-gray-600 text-sm">IFS Officer with 25+ years of experience in forest management and administration</p>
-                                </div>
-                                <div className="bg-white rounded-lg shadow-lg p-6 text-center fade-in">
-                                    <div className="w-24 h-24 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                                        <i className="fas fa-user-tie text-green-700 text-3xl"></i>
-                                    </div>
-                                    <h4 className="text-xl font-bold mb-2">Shri. Ramesh Chand Patel</h4>
-                                    <p className="text-green-700 font-semibold mb-2">Chairman</p>
-                                    <p className="text-gray-600 text-sm">Senior IAS officer with extensive experience in public administration and policy making</p>
-                                </div>
-                                <div className="bg-white rounded-lg shadow-lg p-6 text-center fade-in">
-                                    <div className="w-24 h-24 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                                        <i className="fas fa-user-tie text-green-700 text-3xl"></i>
-                                    </div>
-                                    <h4 className="text-xl font-bold mb-2">Shri. Pradeep Kumar Sharma</h4>
-                                    <p className="text-green-700 font-semibold mb-2">Director (Operations)</p>
-                                    <p className="text-gray-600 text-sm">Expert in forest operations with 20+ years of field experience</p>
-                                </div>
-                            </div>
-                        </section>
-
-                        {/* Statistics */}
-                        <section className="mb-16">
-                            <div className="bg-gradient-to-r from-green-700 to-green-900 rounded-lg p-8 text-white">
-                                <h3 className="text-3xl font-bold mb-8 text-center">Our Impact</h3>
-                                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                                    <div className="text-center fade-in">
-                                        <div className="text-4xl font-bold mb-2 counter" data-target="2500000">0</div>
-                                        <p className="text-green-200">Hectares Managed</p>
-                                    </div>
-                                    <div className="text-center fade-in">
-                                        <div className="text-4xl font-bold mb-2 counter" data-target="75000">0</div>
-                                        <p className="text-green-200">m³ Annual Production</p>
-                                    </div>
-                                    <div className="text-center fade-in">
-                                        <div className="text-4xl font-bold mb-2 counter" data-target="50000">0</div>
-                                        <p className="text-green-200">People Employed</p>
-                                    </div>
-                                    <div className="text-center fade-in">
-                                        <div className="text-4xl font-bold mb-2 counter" data-target="38">0</div>
-                                        <p className="text-green-200">Years of Service</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+            {/* Quick Links / Page Navigation */}
+            <section className="bg-beige-50 py-6 px-4 border-b border-beige-200">
+                <div className="max-w-7xl mx-auto">
+                    <div className="flex flex-wrap justify-center gap-3">
+                        {[
+                            { name: 'About Us', icon: 'fa-info-circle', link: '#about-us' },
+                            { name: 'Company Objectives', icon: 'fa-bullseye', link: '#company-objectives' },
+                            { name: 'Organisation Chart', icon: 'fa-sitemap', link: '#organisation-chart' },
+                            { name: 'Board of Directors', icon: 'fa-users', link: '#board-of-directors' },
+                        ].map((item) => (
+                            <a href={item.link} key={item.name} className="bg-white border border-beige-300 rounded-md px-4 py-2 text-sm font-semibold text-olive-800 hover:bg-olive-50 hover:border-olive-400 transition-colors flex items-center gap-2 shadow-sm">
+                                <i className={`fas ${item.icon} text-olive-500`}></i> {item.name}
+                            </a>
+                        ))}
                     </div>
                 </div>
-            </main>
-            <Footer />
-        </div>
+            </section>
+
+            <div className="bg-beige-50 py-12">
+                <div className="container mx-auto px-4 max-w-5xl space-y-20">
+                    
+                    {/* About Us Section */}
+                    <section id="about-us" className="scroll-mt-24">
+                        <div className="flex items-center gap-3 mb-8 border-b-2 border-gold-300 pb-2">
+                            <h2 className="text-3xl font-bold text-olive-900">About Us</h2>
+                        </div>
+                        <div className="bg-white rounded-2xl p-8 shadow-sm border border-beige-200 text-olive-800 leading-relaxed space-y-4">
+                            <p>
+                                <strong>Madhya Pradesh Rajya Van Vikas Nigam Limited (MPRVVN)</strong>, incorporated on July 24, 1975, is a fully-owned state government company operating under the Companies Act. Headquartered at Van Bhawan in Bhopal, the Nigam was established with the primary mandate to accelerate the pace of forestry development in the state.
+                            </p>
+                            <p>
+                                The corporation plays a pivotal role in the systematic management of forest resources. By transitioning from traditional forestry to highly productive and scientifically managed plantations, MPRVVN aims to improve the quality of forests while generating substantial revenue and employment.
+                            </p>
+                            <p>
+                                Today, MPRVVN operates across numerous project divisions, engaging hundreds of Joint Forest Management (JFM) samitis. We specialize in timber harvesting, bamboo plantation, eco-restoration of mined-out areas, and executing turnkey deposit works for major corporations like NTPC and various coalfields.
+                            </p>
+                            <div className="mt-8 bg-beige-100 p-6 rounded-xl border-l-4 border-olive-500 flex flex-col md:flex-row gap-6 items-center">
+                                <div className="text-4xl text-olive-600"><i className="fas fa-map-marked-alt"></i></div>
+                                <div>
+                                    <h4 className="font-bold text-olive-900 mb-1">Registered Headquarters</h4>
+                                    <p className="text-sm">Van Bhawan, Block-C, 1st Floor, Tulsi Nagar, Bhopal, Madhya Pradesh - 462003, India</p>
+                                    <p className="text-sm mt-1"><strong>Email:</strong> mdrvvn@mp.gov.in</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Company Objectives Section */}
+                    <section id="company-objectives" className="scroll-mt-24">
+                        <div className="flex items-center gap-3 mb-8 border-b-2 border-gold-300 pb-2">
+                            <h2 className="text-3xl font-bold text-olive-900">Company Objectives</h2>
+                        </div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {objectives.map((obj, idx) => (
+                                <div key={idx} className="bg-white p-6 rounded-xl shadow-sm border border-beige-200 hover:border-gold-400 hover:shadow-md transition-all group">
+                                    <div className="w-12 h-12 bg-olive-100 rounded-full flex items-center justify-center text-olive-600 text-xl mb-4 group-hover:bg-olive-600 group-hover:text-beige-50 transition-colors">
+                                        <i className={`fas ${obj.icon}`}></i>
+                                    </div>
+                                    <h3 className="font-bold text-olive-900 text-lg mb-2">{obj.title}</h3>
+                                    <p className="text-sm text-olive-700 leading-relaxed">{obj.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Organisation Chart Section */}
+                    <section id="organisation-chart" className="scroll-mt-24">
+                        <div className="flex items-center gap-3 mb-8 border-b-2 border-gold-300 pb-2">
+                            <h2 className="text-3xl font-bold text-olive-900">Organisation Chart</h2>
+                        </div>
+                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-beige-200 overflow-x-auto">
+                            {/* CSS-based simple hierarchy tree representation */}
+                            <div className="flex flex-col items-center min-w-[600px] py-4">
+                                {/* Level 1 */}
+                                <div className="bg-olive-800 text-white px-6 py-3 rounded-lg font-bold shadow-md relative z-10 w-64 text-center">
+                                    Board of Directors
+                                </div>
+                                <div className="w-0.5 h-6 bg-olive-300"></div>
+                                
+                                {/* Level 2 */}
+                                <div className="bg-olive-700 text-beige-50 px-6 py-3 rounded-lg font-bold shadow-md relative z-10 w-64 text-center border-b-4 border-gold-400">
+                                    Managing Director
+                                </div>
+                                <div className="w-0.5 h-6 bg-olive-300"></div>
+
+                                {/* Level 3 - Connecting Line */}
+                                <div className="w-[80%] h-0.5 bg-olive-300 relative"></div>
+                                
+                                {/* Level 3 - Nodes */}
+                                <div className="flex justify-between w-[90%] mt-6 relative gap-4">
+                                    {/* Connector lines from the horizontal bar */}
+                                    <div className="absolute top-[-24px] left-[10%] w-0.5 h-6 bg-olive-300"></div>
+                                    <div className="absolute top-[-24px] left-[50%] w-0.5 h-6 bg-olive-300"></div>
+                                    <div className="absolute top-[-24px] right-[10%] w-0.5 h-6 bg-olive-300"></div>
+
+                                    <div className="flex-1 bg-beige-100 text-olive-900 border border-olive-200 px-4 py-3 rounded-lg font-semibold text-sm text-center shadow-sm">
+                                        Head Office / Administration
+                                    </div>
+                                    <div className="flex-1 bg-beige-100 text-olive-900 border border-olive-200 px-4 py-3 rounded-lg font-semibold text-sm text-center shadow-sm">
+                                        Regional General Managers (RGM)
+                                    </div>
+                                    <div className="flex-1 bg-beige-100 text-olive-900 border border-olive-200 px-4 py-3 rounded-lg font-semibold text-sm text-center shadow-sm">
+                                        Project Divisions
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Board of Directors Section */}
+                    <section id="board-of-directors" className="scroll-mt-24">
+                        <div className="flex items-center gap-3 mb-8 border-b-2 border-gold-300 pb-2">
+                            <h2 className="text-3xl font-bold text-olive-900">Board of Directors</h2>
+                        </div>
+                        <div className="grid md:grid-cols-2 gap-6">
+                            {boardMembers.map((member, idx) => (
+                                <div key={idx} className="bg-white p-6 rounded-xl shadow-sm border border-beige-200 flex gap-6 items-center">
+                                    <div className="w-16 h-16 rounded-full bg-beige-100 border-2 border-gold-300 flex items-center justify-center text-olive-400 flex-shrink-0">
+                                        <i className="fas fa-user-tie text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 className="font-bold text-olive-900 text-lg">{member.name}</h3>
+                                        <div className="text-gold-600 font-semibold text-sm mb-1 uppercase tracking-wider">{member.role}</div>
+                                        <p className="text-sm text-olive-600">{member.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </PageShell>
     );
 };
 

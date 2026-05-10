@@ -1,6 +1,7 @@
-import React, { createContext, useState, useContext, useCallback } from 'react';
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, useState, useContext, useCallback } from 'react';
 
-const AppContext = createContext({
+export const AppContext = createContext({
     searchOpen: false,
     openSearch: () => {},
     closeSearch: () => {},
@@ -19,4 +20,3 @@ export const AppProvider = ({ children }) => {
 };
 
 export const useApp = () => useContext(AppContext);
-export default AppContext;

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { companySnapshot } from '../data/siteData';
 
 const Footer = () => {
     const [email, setEmail] = useState('');
@@ -17,8 +18,8 @@ const Footer = () => {
                 <div className="container mx-auto px-4 py-8">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                         <div>
-                            <h3 className="text-xl font-bold mb-1">Stay Updated with MPFSDC</h3>
-                            <p className="text-green-300/80 text-sm">Get the latest news on auctions, tenders, and forest initiatives.</p>
+                            <h3 className="text-xl font-bold mb-1">Stay Updated with MPRVVN</h3>
+                            <p className="text-green-300/80 text-sm">Get updates on tenders, auctions, projects, and biodiversity initiatives.</p>
                         </div>
                         {subscribed ? (
                             <div className="bg-green-800/50 text-green-300 px-6 py-3 rounded-lg text-sm font-medium">
@@ -54,12 +55,10 @@ const Footer = () => {
                             </div>
                             <h3 className="text-lg font-bold">MPFSDC</h3>
                         </div>
-                        <p className="text-green-300/80 text-sm leading-relaxed mb-4">
-                            Madhya Pradesh Forest State Development Corporation is committed to sustainable forest management, biodiversity conservation, and community empowerment.
-                        </p>
+                        <p className="text-green-300/80 text-sm leading-relaxed mb-4">{companySnapshot.established}</p>
                         <div className="text-sm text-green-400/70">
-                            <p><i className="fas fa-phone mr-2"></i>+91-755-2551234</p>
-                            <p><i className="fas fa-envelope mr-2"></i>info@mpfsdc.mp.gov.in</p>
+                            <p><i className="fas fa-building-columns mr-2"></i>Government of Madhya Pradesh Enterprise</p>
+                            <p><i className="fas fa-scale-balanced mr-2"></i>{companySnapshot.legal}</p>
                         </div>
                     </div>
 
@@ -68,7 +67,7 @@ const Footer = () => {
                         <h4 className="text-sm font-bold uppercase tracking-wider text-green-400 mb-4">Quick Links</h4>
                         <ul className="space-y-2.5 text-green-300/90 text-sm">
                             <li><Link to="/" className="hover:text-white transition flex items-center gap-2"><i className="fas fa-chevron-right text-[10px] text-green-500"></i>Home</Link></li>
-                            <li><Link to="/about" className="hover:text-white transition flex items-center gap-2"><i className="fas fa-chevron-right text-[10px] text-green-500"></i>About Us</Link></li>
+                            <li><Link to="/about" className="hover:text-white transition flex items-center gap-2"><i className="fas fa-chevron-right text-[10px] text-green-500"></i>About</Link></li>
                             <li><Link to="/services" className="hover:text-white transition flex items-center gap-2"><i className="fas fa-chevron-right text-[10px] text-green-500"></i>Services</Link></li>
                             <li><Link to="/projects" className="hover:text-white transition flex items-center gap-2"><i className="fas fa-chevron-right text-[10px] text-green-500"></i>Projects</Link></li>
                             <li><Link to="/auctions" className="hover:text-white transition flex items-center gap-2"><i className="fas fa-chevron-right text-[10px] text-green-500"></i>Auctions</Link></li>
@@ -80,30 +79,27 @@ const Footer = () => {
                     <div>
                         <h4 className="text-sm font-bold uppercase tracking-wider text-green-400 mb-4">Important Links</h4>
                         <ul className="space-y-2.5 text-green-300/90 text-sm">
-                            <li><a href="#" className="hover:text-white transition flex items-center gap-2"><i className="fas fa-chevron-right text-[10px] text-green-500"></i>RTI Act</a></li>
-                            <li><a href="#" className="hover:text-white transition flex items-center gap-2"><i className="fas fa-chevron-right text-[10px] text-green-500"></i>Citizen Charter</a></li>
-                            <li><a href="#" className="hover:text-white transition flex items-center gap-2"><i className="fas fa-chevron-right text-[10px] text-green-500"></i>Tender Portal</a></li>
-                            <li><a href="#" className="hover:text-white transition flex items-center gap-2"><i className="fas fa-chevron-right text-[10px] text-green-500"></i>E-Auction</a></li>
-                            <li><a href="#" className="hover:text-white transition flex items-center gap-2"><i className="fas fa-chevron-right text-[10px] text-green-500"></i>Privacy Policy</a></li>
-                            <li><a href="#" className="hover:text-white transition flex items-center gap-2"><i className="fas fa-chevron-right text-[10px] text-green-500"></i>Disclaimer</a></li>
+                            <li><Link to="/downloads" className="hover:text-white transition flex items-center gap-2"><i className="fas fa-chevron-right text-[10px] text-green-500"></i>Acts, Rules, Circulars</Link></li>
+                            <li><Link to="/tenders" className="hover:text-white transition flex items-center gap-2"><i className="fas fa-chevron-right text-[10px] text-green-500"></i>Tender Notices</Link></li>
+                            <li><Link to="/auctions" className="hover:text-white transition flex items-center gap-2"><i className="fas fa-chevron-right text-[10px] text-green-500"></i>Current Auctions</Link></li>
+                            <li><Link to="/downloads" className="hover:text-white transition flex items-center gap-2"><i className="fas fa-chevron-right text-[10px] text-green-500"></i>Annual Reports</Link></li>
+                            <li><Link to="/contact" className="hover:text-white transition flex items-center gap-2"><i className="fas fa-chevron-right text-[10px] text-green-500"></i>Grievance Support</Link></li>
                         </ul>
                     </div>
 
                     {/* Connect */}
                     <div>
                         <h4 className="text-sm font-bold uppercase tracking-wider text-green-400 mb-4">Connect With Us</h4>
-                        <div className="flex flex-wrap gap-2 mb-5">
-                            {['facebook-f', 'twitter', 'linkedin-in', 'youtube', 'instagram'].map(social => (
-                                <a key={social} href="#" className="w-9 h-9 bg-white/5 hover:bg-green-600 border border-green-700/30 rounded-lg flex items-center justify-center text-green-300 hover:text-white transition">
-                                    <i className={`fab fa-${social}`}></i>
-                                </a>
-                            ))}
+                        <div className="space-y-2 mb-5 text-sm text-green-200">
+                            <p>Reference public-sector portals:</p>
+                            <a href="https://fdcm.co.in/" className="block hover:text-white transition" target="_blank" rel="noreferrer">Forest Development Corporation of Maharashtra</a>
+                            <a href="http://rvvn.cgstate.gov.in/hi" className="block hover:text-white transition" target="_blank" rel="noreferrer">Chhattisgarh RVVN</a>
                         </div>
                         <h4 className="text-sm font-bold uppercase tracking-wider text-green-400 mb-3">Office Location</h4>
                         <p className="text-green-300/80 text-sm leading-relaxed">
-                            MPFSDC Bhavan, 5th Floor<br/>
-                            Van Bhawan Complex, Arera Hills<br/>
-                            Bhopal - 462011, Madhya Pradesh
+                            Van Bhawan Campus<br/>
+                            Bhopal, Madhya Pradesh<br/>
+                            India
                         </p>
                     </div>
                 </div>
@@ -113,10 +109,10 @@ const Footer = () => {
             <div className="border-t border-green-800/50">
                 <div className="container mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-3">
                     <p className="text-green-400/60 text-xs">
-                        © 2023 MPFSDC, Government of Madhya Pradesh. All Rights Reserved.
+                        © 2026 MPRVVN, Government of Madhya Pradesh. All Rights Reserved.
                     </p>
                     <p className="text-green-400/60 text-xs">
-                        Last Updated: <span className="text-green-300/80">December 2023</span> | Visitor Count: <span className="text-green-300/80">1,25,847</span>
+                        Last Updated: <span className="text-green-300/80">May 2026</span> | Public Information Portal
                     </p>
                 </div>
             </div>

@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 import { AppProvider } from './context/AppContext';
@@ -11,8 +10,12 @@ import Projects from './pages/Projects';
 import Auctions from './pages/Auctions';
 import Gallery from './pages/Gallery';
 import Tenders from './pages/Tenders';
+import Downloads from './pages/Downloads';
 import Contact from './pages/Contact';
 import './index.css';
+
+import ForestryActivities from './pages/ForestryActivities';
+import TurnkeyProjects from './pages/TurnkeyProjects';
 
 function AppRoutes() {
     return (
@@ -26,11 +29,14 @@ function AppRoutes() {
                     <Route path="/auctions" element={<Auctions />} />
                     <Route path="/gallery" element={<Gallery />} />
                     <Route path="/tenders" element={<Tenders />} />
+                    <Route path="/downloads" element={<Downloads />} />
                     <Route path="/contact" element={<Contact />} />
+                    <Route path="/forestry-activities" element={<ForestryActivities />} />
+                    <Route path="/turnkey-projects" element={<TurnkeyProjects />} />
                 </Routes>
+                <AccessibilityPanel />
+                <SearchModal />
             </Router>
-            <AccessibilityPanel />
-            <SearchModal />
         </>
     );
 }

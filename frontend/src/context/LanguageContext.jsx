@@ -1,6 +1,7 @@
-import React, { createContext, useState, useContext, useCallback } from 'react';
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, useState, useContext, useCallback } from 'react';
 
-const LanguageContext = createContext({
+export const LanguageContext = createContext({
     lang: 'en',
     setLang: () => {},
     t: (key) => key,
@@ -106,4 +107,3 @@ export const LanguageProvider = ({ children }) => {
 };
 
 export const useLanguage = () => useContext(LanguageContext);
-export default LanguageContext;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 
@@ -28,21 +28,27 @@ const SearchModal = () => {
 
     useEffect(() => {
         if (searchOpen) {
-            setQuery('');
-            setResults([]);
-            setTimeout(() => inputRef.current?.focus(), 100);
+            const t = setTimeout(() => {
+                setQuery('');
+                setResults([]);
+                inputRef.current?.focus();
+            }, 50);
+            return () => clearTimeout(t);
         }
     }, [searchOpen]);
 
     useEffect(() => {
         const q = query.trim().toLowerCase();
-        if (q.length < 2) { setResults([]); return; }
-        const filtered = searchIndex.filter(item =>
-            item.title.toLowerCase().includes(q) ||
-            item.desc.toLowerCase().includes(q) ||
-            item.tags.toLowerCase().includes(q)
-        );
-        setResults(filtered);
+        const debounce = setTimeout(() => {
+            if (q.length < 2) { setResults([]); return; }
+            const filtered = searchIndex.filter(item =>
+                item.title.toLowerCase().includes(q) ||
+                item.desc.toLowerCase().includes(q) ||
+                item.tags.toLowerCase().includes(q)
+            );
+            setResults(filtered);
+        }, 150);
+        return () => clearTimeout(debounce);
     }, [query]);
 
     useEffect(() => {

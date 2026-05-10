@@ -1,238 +1,110 @@
-import React, { useEffect } from 'react';
-import Header from '../components/Header';
-import Navigation from '../components/Navigation';
-import Footer from '../components/Footer';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import PageShell from '../components/PageShell';
+
+const forestryActivities = [
+    {
+        title: 'Nursery',
+        body: 'Self-sustaining nursery model with teak root-shoots, bamboo seedlings, RET and NTFP species. Includes polyhouse support, mist chambers, and seed bank integration.',
+    },
+    {
+        title: 'Plantation',
+        body: 'Site-specific plantation planning across divisions, including rain-fed teak, bamboo, mixed species, and regeneration-driven models aligned with working plans.',
+    },
+    {
+        title: 'Forest Protection',
+        body: 'Protection planning through fencing, organic inputs, fire lines, watchers, Van Suraksha/JFM participation, and surveillance support in sensitive zones.',
+    },
+    {
+        title: 'Depo Management',
+        body: 'Division-level lot management, grading, transit readiness, and transparent material movement for auction and timber value-chain operations.',
+    },
+    {
+        title: 'Wild Life Conservation',
+        body: 'Corridor-sensitive forestry with waterhole support, fruit-bearing native species, and habitat continuity in tiger reserve and buffer landscapes.',
+    },
+    {
+        title: 'Community',
+        body: 'People-centric livelihood activities through nursery work, plantation jobs, women and tribal inclusion, training, and development-linked eco-enterprise support.',
+    },
+];
+
+const turnkeyPlantation = [
+    {
+        title: 'Eco Restoration in Mine Area',
+        body: 'Restoration of degraded mine and overburden land through soil preparation, site-specific species mix, and monitored survival-based plantation packages.',
+    },
+    {
+        title: 'Miyawaki Forest',
+        body: 'Dense, rapid-canopy urban and institutional forestry blocks using native species clustering for biodiversity and carbon benefits on compact land parcels.',
+    },
+    {
+        title: 'Avenue Plantation',
+        body: 'Roadside and corridor plantations with species zoning, long-term maintenance, and survival tracking for public infrastructure greening.',
+    },
+    {
+        title: 'CSR Plantations',
+        body: 'Corporate partnership plantations with milestone reporting, geo-tagged progress, and division-wise implementation support under agreed social and ecological goals.',
+    },
+];
 
 const Services = () => {
-    useEffect(() => {
-        // Initialize animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-        
-        const animateElements = document.querySelectorAll('.fade-in');
-        animateElements.forEach(el => {
-            observer.observe(el);
-        });
-
-        // Counter animation
-        const animateCounter = (element) => {
-            const target = parseInt(element.getAttribute('data-target'));
-            const duration = 2000;
-            const step = target / (duration / 16);
-            let current = 0;
-            
-            const updateCounter = () => {
-                current += step;
-                if (current < target) {
-                    element.textContent = Math.floor(current).toLocaleString();
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    element.textContent = target.toLocaleString();
-                }
-            };
-            
-            updateCounter();
-        };
-
-        const counters = document.querySelectorAll('.counter');
-        counters.forEach(counter => {
-            const counterObserver = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounter(entry.target);
-                        counterObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            counterObserver.observe(counter);
-        });
-    }, []);
+    const [activeTab, setActiveTab] = useState('forestry');
 
     return (
-        <div className="min-h-screen flex flex-col">
-            <Header />
-            <Navigation />
-            <main className="flex-1">
-                {/* Page Header */}
-                <section className="bg-gradient-to-r from-green-700 to-green-900 py-16">
-                    <div className="container mx-auto px-4">
-                        <div className="text-white text-center">
-                            <h2 className="text-4xl font-bold mb-4">Our Services</h2>
-                            <p className="text-xl">Comprehensive Forest Management Solutions</p>
-                        </div>
-                    </div>
-                </section>
+        <PageShell>
+            <section className="mx-auto max-w-6xl px-4 py-12">
+                <h2 className="text-4xl font-extrabold text-emerald-900">Services</h2>
+                <p className="mt-2 max-w-4xl text-stone-600">
+                    This page now follows your brochure and public-portal pattern: activity-first sections, turnkey work categories, and clearly readable implementation scope.
+                </p>
+            </section>
 
-                {/* Services Content */}
-                <div className="py-16">
-                    <div className="container mx-auto px-4">
-                        {/* Services Overview */}
-                        <section className="mb-16">
-                            <div className="text-center mb-12">
-                                <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-                                    MPFSDC offers a comprehensive range of forest management services designed to promote sustainable development, conservation, and economic growth. Our services are tailored to meet the diverse needs of stakeholders while maintaining ecological balance.
-                                </p>
-                            </div>
-                        </section>
+            <section className="mx-auto max-w-6xl px-4 pb-6">
+                <div className="inline-flex rounded-xl border border-stone-200 bg-white p-1">
+                    <button onClick={() => setActiveTab('forestry')} className={`rounded-lg px-4 py-2 text-sm font-semibold ${activeTab === 'forestry' ? 'bg-emerald-700 text-white' : 'text-stone-700'}`}>
+                        Forestry Activities
+                    </button>
+                    <button onClick={() => setActiveTab('turnkey')} className={`rounded-lg px-4 py-2 text-sm font-semibold ${activeTab === 'turnkey' ? 'bg-emerald-700 text-white' : 'text-stone-700'}`}>
+                        Turn Key Plantation
+                    </button>
+                </div>
+            </section>
 
-                        {/* Core Services */}
-                        <section className="mb-16">
-                            <h3 className="text-3xl font-bold mb-8 text-center text-green-800">Core Services</h3>
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow fade-in">
-                                    <div className="text-center mb-4">
-                                        <i className="fas fa-tree text-green-700 text-4xl"></i>
-                                    </div>
-                                    <h4 className="text-xl font-bold mb-3 text-green-800">Forest Management</h4>
-                                    <p className="text-gray-700 mb-4">
-                                        Scientific management of forest resources including plantation, harvesting, and regeneration activities using modern silvicultural practices.
-                                    </p>
-                                    <ul className="text-sm text-gray-600 space-y-2">
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Silvicultural operations</li>
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Forest inventory and assessment</li>
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Growth monitoring</li>
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Disease management</li>
-                                    </ul>
-                                </div>
+            <section className="mx-auto grid max-w-6xl gap-4 px-4 pb-12 md:grid-cols-2">
+                {(activeTab === 'forestry' ? forestryActivities : turnkeyPlantation).map((item) => (
+                    <article key={item.title} className="rounded-xl border border-stone-200 bg-white p-5">
+                        <h3 className="text-lg font-bold text-emerald-800">{item.title}</h3>
+                        <p className="mt-2 text-sm leading-relaxed text-stone-700">{item.body}</p>
+                    </article>
+                ))}
+            </section>
 
-                                <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow fade-in">
-                                    <div className="text-center mb-4">
-                                        <i className="fas fa-leaf text-green-700 text-4xl"></i>
-                                    </div>
-                                    <h4 className="text-xl font-bold mb-3 text-green-800">Timber Production</h4>
-                                    <p className="text-gray-700 mb-4">
-                                        Sustainable harvesting and marketing of high-quality timber, bamboo, and other forest products following FSC standards.
-                                    </p>
-                                    <ul className="text-sm text-gray-600 space-y-2">
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Timber harvesting</li>
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Bamboo extraction</li>
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Quality grading</li>
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Market facilitation</li>
-                                    </ul>
-                                </div>
+            <section className="mx-auto max-w-6xl px-4 pb-12">
+                <article className="rounded-2xl border border-emerald-100 bg-emerald-50 p-6">
+                    <h3 className="text-xl font-bold text-emerald-900">Brochure-aligned execution model</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-emerald-950/90">
+                        We execute scientific plantation and restoration programs through phase-wise planning, species-specific protocols, and on-ground protection.
+                        The brochure highlights our transition from clear-felling-era models to conservation-oriented forestry, integration of biodiversity targets,
+                        and next-gen priorities like sandal strategy, nursery self-reliance, and strategic alliances.
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-emerald-950/90">
+                        For each turnkey project category (mine eco-restoration, Miyawaki, avenue, CSR), we can attach photos, partner agencies, and division-wise implementation records as you requested.
+                    </p>
+                </article>
+            </section>
 
-                                <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow fade-in">
-                                    <div className="text-center mb-4">
-                                        <i className="fas fa-shield-alt text-green-700 text-4xl"></i>
-                                    </div>
-                                    <h4 className="text-xl font-bold mb-3 text-green-800">Conservation</h4>
-                                    <p className="text-gray-700 mb-4">
-                                        Wildlife habitat protection, biodiversity conservation, and environmental monitoring programs to preserve ecological balance.
-                                    </p>
-                                    <ul className="text-sm text-gray-600 space-y-2">
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Wildlife protection</li>
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Biodiversity assessment</li>
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Habitat restoration</li>
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Anti-poaching measures</li>
-                                    </ul>
-                                </div>
-
-                                <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow fade-in">
-                                    <div className="text-center mb-4">
-                                        <i className="fas fa-users text-green-700 text-4xl"></i>
-                                    </div>
-                                    <h4 className="text-xl font-bold mb-3 text-green-800">Community Development</h4>
-                                    <p className="text-gray-700 mb-4">
-                                        Empowering local communities through employment opportunities and sustainable livelihood programs.
-                                    </p>
-                                    <ul className="text-sm text-gray-600 space-y-2">
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Employment generation</li>
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Skill development</li>
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Self-help groups</li>
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Alternative livelihoods</li>
-                                    </ul>
-                                </div>
-
-                                <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow fade-in">
-                                    <div className="text-center mb-4">
-                                        <i className="fas fa-graduation-cap text-green-700 text-4xl"></i>
-                                    </div>
-                                    <h4 className="text-xl font-bold mb-3 text-green-800">Training & Research</h4>
-                                    <p className="text-gray-700 mb-4">
-                                        Forestry training programs and research initiatives for sustainable forest management practices.
-                                    </p>
-                                    <ul className="text-sm text-gray-600 space-y-2">
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Technical training</li>
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Research collaborations</li>
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Workshops and seminars</li>
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Knowledge sharing</li>
-                                    </ul>
-                                </div>
-
-                                <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow fade-in">
-                                    <div className="text-center mb-4">
-                                        <i className="fas fa-seedling text-green-700 text-4xl"></i>
-                                    </div>
-                                    <h4 className="text-xl font-bold mb-3 text-green-800">Nursery Operations</h4>
-                                    <p className="text-gray-700 mb-4">
-                                        Modern nursery facilities for quality sapling production and afforestation programs.
-                                    </p>
-                                    <ul className="text-sm text-gray-600 space-y-2">
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Quality sapling production</li>
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Species diversification</li>
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Disease-free plants</li>
-                                        <li><i className="fas fa-check text-green-600 mr-2"></i>Supply to stakeholders</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </section>
-
-                        {/* Service Statistics */}
-                        <section className="mb-16">
-                            <div className="bg-green-800 text-white rounded-lg p-8">
-                                <h3 className="text-3xl font-bold mb-8 text-center">Service Impact</h3>
-                                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                                    <div className="text-center fade-in">
-                                        <div className="text-4xl font-bold mb-2 counter" data-target="1500">0</div>
-                                        <p className="text-green-200">Projects Completed</p>
-                                    </div>
-                                    <div className="text-center fade-in">
-                                        <div className="text-4xl font-bold mb-2 counter" data-target="50000">0</div>
-                                        <p className="text-green-200">Beneficiaries</p>
-                                    </div>
-                                    <div className="text-center fade-in">
-                                        <div className="text-4xl font-bold mb-2 counter" data-target="98">0</div>
-                                        <p className="text-green-200">% Satisfaction Rate</p>
-                                    </div>
-                                    <div className="text-center fade-in">
-                                        <div className="text-4xl font-bold mb-2 counter" data-target="24">0</div>
-                                        <p className="text-green-200">Districts Covered</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        {/* Call to Action */}
-                        <section className="text-center">
-                            <h3 className="text-2xl font-bold mb-4 text-green-800">Need Our Services?</h3>
-                            <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-                                Contact us today to learn how our comprehensive forest management services can help you achieve your sustainability goals.
-                            </p>
-                            <div className="flex justify-center space-x-4">
-                                <a href="/contact" className="bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition">
-                                    <i className="fas fa-phone mr-2"></i>Contact Us
-                                </a>
-                                <a href="/projects" className="bg-white text-green-700 border-2 border-green-700 px-6 py-3 rounded-lg hover:bg-green-50 transition">
-                                    <i className="fas fa-folder-open mr-2"></i>View Projects
-                                </a>
-                            </div>
-                        </section>
+            <section className="mx-auto max-w-6xl px-4 pb-12">
+                <div className="rounded-2xl bg-emerald-900 px-6 py-8 text-center text-white">
+                    <h3 className="text-2xl font-bold">Need service-level details?</h3>
+                    <p className="mt-2 text-emerald-100">Contact the relevant department or proceed to tenders and auctions for active opportunities.</p>
+                    <div className="mt-4 flex justify-center gap-3">
+                        <Link to="/contact" className="rounded-lg bg-white px-4 py-2 font-semibold text-emerald-800">Contact</Link>
+                        <Link to="/tenders" className="rounded-lg border border-white/40 px-4 py-2 font-semibold text-white">Tenders</Link>
                     </div>
                 </div>
-            </main>
-            <Footer />
-        </div>
+            </section>
+        </PageShell>
     );
 };
 
