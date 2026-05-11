@@ -21,6 +21,7 @@ import ForestryActivities from './pages/ForestryActivities';
 import TurnkeyProjects from './pages/TurnkeyProjects';
 import Operations from './pages/Operations';
 import EServices from './pages/EServices';
+import { Analytics } from '@vercel/analytics/react';
 
 function AppRoutes() {
     return (
@@ -55,6 +56,7 @@ function App() {
         <LanguageProvider>
             <AppProvider>
                 <AppRoutes />
+                <Analytics />
             </AppProvider>
         </LanguageProvider>
     );
