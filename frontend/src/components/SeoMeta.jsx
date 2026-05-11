@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { companySnapshot } from '../data/siteData';
+
 
 // Note: we avoid react-helmet and instead update head tags imperatively
 // to keep this SPA lightweight and Vercel-safe.
@@ -85,8 +87,11 @@ function ensureLink(rel, href) {
 }
 
 export default function SeoMeta() {
+	const location = useLocation();
+
 	useEffect(() => {
-		const pathname = window.location.pathname.endsWith('/') && window.location.pathname !== '/' ? window.location.pathname.slice(0, -1) : window.location.pathname;
+		const pathname = location.pathname.endsWith('/') && location.pathname !== '/' ? location.pathname.slice(0, -1) : location.pathname;
+
 
 		const page = PAGE_META[pathname] || DEFAULTS;
 
@@ -115,7 +120,8 @@ export default function SeoMeta() {
 		ensureMetaTag('twitter:description', description, { type: 'name' });
 		ensureMetaTag('twitter:image', DEFAULTS.ogImage, { type: 'name' });
 
-	}, []);
+	}, [location.pathname]);
+
 
 	return null;
 }
