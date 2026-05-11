@@ -1,46 +1,40 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { companySnapshot } from '../data/siteData';
 
-const Footer = () => {
-    const [email, setEmail] = useState('');
-    const [subscribed, setSubscribed] = useState(false);
 
-    const handleSubscribe = (e) => {
-        e.preventDefault();
-        if (email) { setSubscribed(true); setEmail(''); }
-    };
+const Footer = () => {
+    // Footer kept static for public information credibility.
+    // Newsletter subscription UI removed intentionally.
+
 
     return (
         <footer className="bg-beige-100 text-stone-700 border-t-4 border-gold-400">
 
-            {/* ── Newsletter Strip ── */}
+            {/* ── Public Information Strip ── */}
             <div className="bg-beige-200 border-b border-beige-300">
                 <div className="container mx-auto px-6 py-6">
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div className="grid md:grid-cols-3 gap-6 items-start">
                         <div>
-                            <h3 className="text-base font-bold text-stone-800">Stay Updated with MPRVVN</h3>
-                            <p className="text-sm text-stone-500 mt-0.5">Get updates on tenders, auctions, projects, and forest initiatives.</p>
+                            <h3 className="text-base font-bold text-stone-800">Public Interface</h3>
+                            <p className="text-sm text-stone-500 mt-0.5">
+                                Official notices and circulars are published in the relevant sections of this portal.
+                            </p>
                         </div>
-                        {subscribed ? (
-                            <div className="flex items-center gap-2 bg-olive-100 border border-olive-300 text-olive-700 px-5 py-2.5 rounded-lg text-sm font-semibold">
-                                <i className="fas fa-check-circle text-olive-500"></i> Thank you for subscribing!
+                        <div className="text-sm">
+                            <p className="font-semibold text-stone-700">Office Timings</p>
+                            <p className="text-stone-500">Mon–Fri, 10:00 AM to 05:30 PM (working days)</p>
+                        </div>
+                        <div className="text-sm">
+                            <p className="font-semibold text-stone-700">Grievance / RTI</p>
+                            <div className="mt-2 flex flex-col sm:flex-row gap-3">
+                                <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-bold text-olive-800 hover:text-olive-900 transition-colors">
+                                    <i className="fas fa-headset text-gold-500"></i> Contact / Grievance
+                                </Link>
+                                <Link to="/downloads#rti-rts" className="inline-flex items-center gap-2 text-sm font-bold text-olive-800 hover:text-olive-900 transition-colors">
+                                    <i className="fas fa-file-alt text-gold-500"></i> RTI / RTS
+                                </Link>
                             </div>
-                        ) : (
-                            <form onSubmit={handleSubscribe} className="flex gap-2 w-full sm:w-auto">
-                                <input
-                                    type="email"
-                                    value={email}
-                                    onChange={e => setEmail(e.target.value)}
-                                    placeholder="Your email address"
-                                    required
-                                    className="bg-white border border-beige-300 rounded-lg px-4 py-2.5 text-sm text-stone-700 placeholder-stone-400 focus:outline-none focus:border-gold-400 w-full sm:w-64 transition-colors shadow-sm"
-                                />
-                                <button type="submit" className="bg-gold-500 hover:bg-gold-400 text-stone-900 font-bold px-5 py-2.5 rounded-lg text-sm transition-colors whitespace-nowrap shadow-sm">
-                                    Subscribe
-                                </button>
-                            </form>
-                        )}
+                        </div>
                     </div>
                 </div>
             </div>

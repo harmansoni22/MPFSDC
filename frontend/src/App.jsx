@@ -13,7 +13,9 @@ import Tenders from './pages/Tenders';
 import Downloads from './pages/Downloads';
 import Contact from './pages/Contact';
 import Directory from './pages/Directory';
+import SeoMeta from './components/SeoMeta';
 import './index.css';
+
 
 import ForestryActivities from './pages/ForestryActivities';
 import TurnkeyProjects from './pages/TurnkeyProjects';
@@ -25,20 +27,21 @@ function AppRoutes() {
         <>
             <Router>
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/services" element={<Services />} />
-                    <Route path="/projects" element={<Projects />} />
-                    <Route path="/auctions" element={<Auctions />} />
-                    <Route path="/gallery" element={<Gallery />} />
-                    <Route path="/tenders" element={<Tenders />} />
-                    <Route path="/downloads" element={<Downloads />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/directory" element={<Directory />} />
-                    <Route path="/operations" element={<Operations />} />
-                    <Route path="/e-services" element={<EServices />} />
-                    <Route path="/forestry-activities" element={<ForestryActivities />} />
-                    <Route path="/turnkey-projects" element={<TurnkeyProjects />} />
+                    <Route path="/" element={<><SeoMeta /><Home /></>} />
+                    <Route path="/about" element={<><SeoMeta /><About /></>} />
+                    <Route path="/services" element={<><SeoMeta /><Services /></>} />
+                    <Route path="/projects" element={<><SeoMeta /><Projects /></>} />
+                    <Route path="/auctions" element={<><SeoMeta /><Auctions /></>} />
+                    <Route path="/gallery" element={<><SeoMeta /><Gallery /></>} />
+                    <Route path="/tenders" element={<><SeoMeta /><Tenders /></>} />
+                    <Route path="/downloads" element={<><SeoMeta /><Downloads /></>} />
+                    <Route path="/contact" element={<><SeoMeta /><Contact /></>} />
+                    <Route path="/directory" element={<><SeoMeta /><Directory /></>} />
+                    <Route path="/operations" element={<><SeoMeta /><Operations /></>} />
+                    <Route path="/e-services" element={<><SeoMeta /><EServices /></>} />
+                    <Route path="/forestry-activities" element={<><SeoMeta /><ForestryActivities /></>} />
+                    <Route path="/turnkey-projects" element={<><SeoMeta /><TurnkeyProjects /></>} />
+
                 </Routes>
                 <AccessibilityPanel />
                 <SearchModal />

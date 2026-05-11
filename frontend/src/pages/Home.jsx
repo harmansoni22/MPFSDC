@@ -44,16 +44,16 @@ const Home = () => {
                 {/* Subtle background pattern */}
                 <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #465A37 1px, transparent 1px)', backgroundSize: '28px 28px' }}></div>
 
-                <div className="relative flex flex-col lg:flex-row min-h-[82vh]">
+                <div className="relative flex flex-col lg:flex-row min-h-[68vh]">
 
                     {/* ── LEFT: Text Content ── */}
-                    <div className="flex-1 flex items-center px-8 md:px-16 lg:px-20 xl:px-28 py-16 lg:py-0">
+                    <div className="flex-1 flex items-center px-6 md:px-10 lg:px-14 xl:px-20 py-12 lg:py-0">
                         <div className="max-w-xl w-full">
 
-                            {/* Welcome line (separated) */}
-                            <div className="mb-7">
-                                <span className="inline-flex items-center gap-2 px-3 py-1 text-[11px] font-bold tracking-[0.18em] uppercase text-olive-700 bg-olive-100 border border-olive-200 rounded-full">
-                                    <i className="fas fa-leaf text-olive-500 text-[10px]" /> Welcome to MPFSDC
+                            {/* Administrative framing */}
+                            <div className="mb-6">
+                                <span className="inline-flex items-center gap-2 px-3 py-1 text-[11px] font-bold tracking-[0.12em] uppercase text-olive-700 bg-olive-100 border border-olive-200 rounded-full">
+                                    <i className="fas fa-leaf text-olive-500 text-[10px]" /> Government of Madhya Pradesh undertaking
                                 </span>
                             </div>
 
@@ -67,11 +67,11 @@ const Home = () => {
                                 <span className="text-xs font-semibold text-beige-500 tracking-wider">Est. 1975</span>
                             </div> */}
 
-                            {/* Main Heading (replaced by welcome line) */}
-                            <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold text-olive-900 leading-[1.12] tracking-tight mb-6">
-                                Welcome to <span className="text-gold-500">MPRVVN</span>
-
+                            {/* Institutional Heading */}
+                            <h1 className="text-[2.75rem] md:text-[3.25rem] xl:text-[3.75rem] font-extrabold text-olive-900 leading-[1.12] tracking-tight mb-5">
+                                Madhya Pradesh Forestry Operations
                             </h1>
+
 
                             {/* Original main heading commented out */}
                             {/*
@@ -89,9 +89,10 @@ const Home = () => {
 
 
                             {/* Subtext */}
-                            <p className="text-base md:text-lg text-olive-600 leading-relaxed mb-10 max-w-md">
-                                Promoting environmental conservation and economic development through scientifically managed forest practices across the state.
+                            <p className="text-base md:text-lg text-olive-600 leading-relaxed mb-8 max-w-md">
+                                MPFSDC supports forestry operations for afforestation, eco-restoration, and sustainable development through approved plans and field execution.
                             </p>
+
 
 
                             {/* CTA Buttons */}
@@ -186,42 +187,33 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Elaborate Partner With Us Section */}
-            <section className="bg-beige-50 py-20 px-4 border-b border-beige-200 border-t border-t-beige-200">
+            {/* Institutional Collaboration (compact) */}
+            <section className="bg-beige-50 py-10 px-4 border-b border-beige-200 border-t border-t-beige-200">
                 <div className="max-w-6xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-5xl font-extrabold text-olive-900 mb-4">Partner With Us for a Sustainable Future</h2>
-                        <p className="text-lg text-olive-700 max-w-3xl mx-auto">
-                            We welcome partnerships with government agencies, NGOs, and private organizations for collaborative forest conservation, eco-restoration, and community development projects.
+                    <div className="text-center mb-10">
+                        <h2 className="text-2xl md:text-3xl font-extrabold text-olive-900 mb-3">Collaboration for Forestry Operations</h2>
+                        <p className="text-base md:text-lg text-olive-700 max-w-3xl mx-auto">
+                            Government agencies and stakeholders may coordinate with MPFSDC for afforestation, eco-restoration, and related field execution under notified scopes.
                         </p>
                     </div>
 
-                    {/* Partnership Highlights */}
-                    <div className="grid md:grid-cols-3 gap-8">
-                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-beige-200 text-center group hover:shadow-md transition-shadow">
-                            <div className="w-16 h-16 mx-auto bg-beige-100 text-olive-600 rounded-full flex items-center justify-center text-2xl mb-6 group-hover:bg-olive-600 group-hover:text-beige-100 transition-colors">
-                                <i className="fas fa-handshake"></i>
-                            </div>
-                            <h3 className="text-xl font-bold text-olive-800 mb-3">Deposit Works</h3>
-                            <p className="text-olive-600 text-sm">Execute large-scale plantations on behalf of external agencies to meet afforestation goals.</p>
+                    <div className="grid md:grid-cols-3 gap-5">
+                        <div className="bg-white p-6 rounded-2xl border border-beige-200 text-center">
+                            <h3 className="text-lg font-bold text-olive-800 mb-2">Deposit Works</h3>
+                            <p className="text-olive-600 text-sm">Execution of plantation and forestry activities on behalf of external agencies under agreed process.</p>
                         </div>
-                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-beige-200 text-center group hover:shadow-md transition-shadow">
-                            <div className="w-16 h-16 mx-auto bg-beige-100 text-olive-600 rounded-full flex items-center justify-center text-2xl mb-6 group-hover:bg-olive-600 group-hover:text-beige-100 transition-colors">
-                                <i className="fas fa-leaf"></i>
-                            </div>
-                            <h3 className="text-xl font-bold text-olive-800 mb-3">CSR Initiatives</h3>
-                            <p className="text-olive-600 text-sm">Collaborate on impactful CSR projects focusing on environmental sustainability and carbon offset.</p>
+                        <div className="bg-white p-6 rounded-2xl border border-beige-200 text-center">
+                            <h3 className="text-lg font-bold text-olive-800 mb-2">Programme Support</h3>
+                            <p className="text-olive-600 text-sm">Support for nursery, inputs and field operations as per approved forestry plans.</p>
                         </div>
-                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-beige-200 text-center group hover:shadow-md transition-shadow">
-                            <div className="w-16 h-16 mx-auto bg-beige-100 text-olive-600 rounded-full flex items-center justify-center text-2xl mb-6 group-hover:bg-olive-600 group-hover:text-beige-100 transition-colors">
-                                <i className="fas fa-mountain"></i>
-                            </div>
-                            <h3 className="text-xl font-bold text-olive-800 mb-3">Eco Restoration</h3>
-                            <p className="text-olive-600 text-sm">Partner for scientific reclamation of degraded lands and mined-out areas into green forests.</p>
+                        <div className="bg-white p-6 rounded-2xl border border-beige-200 text-center">
+                            <h3 className="text-lg font-bold text-olive-800 mb-2">Eco-Restoration</h3>
+                            <p className="text-olive-600 text-sm">Restoration of degraded lands through scientific reclamation and post-planting protection.</p>
                         </div>
                     </div>
                 </div>
             </section>
+
 
             {/* News & Employee Corner Section */}
             <section className="bg-beige-100 py-12 px-4">
@@ -262,11 +254,11 @@ const Home = () => {
                                 <div className="h-[300px] overflow-y-auto px-4 py-2 custom-scrollbar">
                                     <ul className="space-y-0">
                                         {newsData[activeTab].map((item, index) => (
-                                            <li key={index} className="py-4 border-b border-beige-100 last:border-0 flex items-start gap-3 group">
-                                                <i className="fas fa-arrow-right text-olive-500 mt-1 flex-shrink-0 group-hover:text-gold-500 transition-colors"></i>
-                                                <p className="text-sm text-olive-800 leading-relaxed font-medium group-hover:text-olive-600 transition-colors cursor-pointer">
+                                    <li key={index} className="py-4 border-b border-beige-100 last:border-0 flex items-start gap-3">
+                                                <i className="fas fa-arrow-right text-olive-500 mt-1 flex-shrink-0"></i>
+                                                <p className="text-sm text-olive-800 leading-relaxed font-medium cursor-pointer">
                                                     {item}
-                                                    {index < 3 && <span className="inline-block ml-2 px-1.5 py-0.5 text-[10px] font-bold text-white bg-red-500 rounded animate-pulse">NEW</span>}
+                                                    {index < 3 && <span className="inline-block ml-2 px-1.5 py-0.5 text-[10px] font-bold text-white bg-red-500 rounded">NEW</span>}
                                                 </p>
                                             </li>
                                         ))}
@@ -289,11 +281,11 @@ const Home = () => {
                                 <div className="h-[355px] overflow-y-auto px-4 py-2 custom-scrollbar">
                                     <ul className="space-y-0">
                                         {employeeData.map((item, index) => (
-                                            <li key={index} className="py-4 border-b border-beige-100 last:border-0 flex items-start gap-3 group">
-                                                <i className="fas fa-arrow-right text-olive-500 mt-1 flex-shrink-0 group-hover:text-gold-500 transition-colors"></i>
-                                                <p className="text-sm text-olive-800 leading-relaxed font-medium group-hover:text-olive-600 transition-colors cursor-pointer">
+                                                <li key={index} className="py-4 border-b border-beige-100 last:border-0 flex items-start gap-3">
+                                                <i className="fas fa-arrow-right text-olive-500 mt-1 flex-shrink-0"></i>
+                                                <p className="text-sm text-olive-800 leading-relaxed font-medium cursor-pointer">
                                                     {item}
-                                                    {index < 2 && <span className="inline-block ml-2 px-1.5 py-0.5 text-[10px] font-bold text-white bg-red-500 rounded animate-pulse">NEW</span>}
+                                                    {index < 2 && <span className="inline-block ml-2 px-1.5 py-0.5 text-[10px] font-bold text-white bg-red-500 rounded">NEW</span>}
                                                 </p>
                                             </li>
                                         ))}
@@ -306,64 +298,52 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Our Partners / Associate Organizations Section */}
-            <section className="bg-olive-800 py-16 px-4 border-t-4 border-gold-500">
+            {/* Institutional Partners / Associated Organizations Section (neutralized) */}
+            <section className="bg-olive-800 py-10 px-4 border-t-4 border-gold-500">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-center text-2xl font-bold text-beige-50 mb-10 tracking-widest uppercase border-b border-olive-700 pb-4 max-w-sm mx-auto">
-                        Our Partners
+                    <h2 className="text-center text-xl md:text-2xl font-bold text-beige-50 mb-8 tracking-wider border-b border-olive-700 pb-4 max-w-xl mx-auto">
+                        Associated Organizations
                     </h2>
 
-                    <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
-                        {/* Card 1 */}
-                        <div className="bg-white w-64 h-32 rounded-lg flex flex-col items-center justify-center p-4 shadow-lg border-2 border-transparent hover:border-gold-400 transition-all group">
-                            <div className="text-4xl text-olive-600 mb-2 group-hover:scale-110 transition-transform"><i className="fas fa-bolt"></i></div>
-                            <span className="font-bold text-olive-900 text-sm text-center">NTPC Limited</span>
-                        </div>
-
-                        {/* Card 2 */}
-                        <div className="bg-white w-64 h-32 rounded-lg flex flex-col items-center justify-center p-4 shadow-lg border-2 border-transparent hover:border-gold-400 transition-all group">
-                            <div className="text-4xl text-olive-600 mb-2 group-hover:scale-110 transition-transform"><i className="fas fa-hard-hat"></i></div>
-                            <span className="font-bold text-olive-900 text-sm text-center">Northern Coalfields</span>
-                        </div>
-
-                        {/* Card 3 */}
-                        <div className="bg-white w-64 h-32 rounded-lg flex flex-col items-center justify-center p-4 shadow-lg border-2 border-transparent hover:border-gold-400 transition-all group">
-                            <div className="text-4xl text-olive-600 mb-2 group-hover:scale-110 transition-transform"><i className="fas fa-industry"></i></div>
-                            <span className="font-bold text-olive-900 text-sm text-center">Western Coalfields</span>
-                        </div>
-
-                        {/* Card 4 */}
-                        <div className="bg-white w-64 h-32 rounded-lg flex flex-col items-center justify-center p-4 shadow-lg border-2 border-transparent hover:border-gold-400 transition-all group">
-                            <div className="text-4xl text-olive-600 mb-2 group-hover:scale-110 transition-transform"><i className="fas fa-lightbulb"></i></div>
-                            <span className="font-bold text-olive-900 text-sm text-center">Havells India</span>
-                        </div>
-
-                        {/* Card 5 */}
-                        <div className="bg-white w-64 h-32 rounded-lg flex flex-col items-center justify-center p-4 shadow-lg border-2 border-transparent hover:border-gold-400 transition-all group">
-                            <div className="text-4xl text-olive-600 mb-2 group-hover:scale-110 transition-transform"><i className="fas fa-paw"></i></div>
-                            <span className="font-bold text-olive-900 text-sm text-center">State Wildlife Board</span>
+                    <div className="bg-white/95 border border-beige-200 rounded-xl p-5">
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4">
+                            {[
+                                'Forest development and afforestation implementation partners',
+                                'Authorities supporting inputs, protection and monitoring',
+                                'Stakeholders for eco-restoration and maintenance',
+                                'Local institutions for field execution coordination',
+                                'Public agencies for dissemination of notices and documents',
+                                'Other collaborating agencies (as notified)'
+                            ].map((label, idx) => (
+                                <div key={idx} className="flex items-start gap-3">
+                                    <span className="mt-1 inline-flex w-2 h-2 rounded-full bg-gold-400" />
+                                    <p className="text-sm font-semibold text-olive-900 leading-relaxed">{label}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Dedicated CTA Section */}
-            <section className="bg-beige-100 py-20 px-4 text-center border-y border-beige-200">
+
+            {/* Public Interface (compact) */}
+            <section className="bg-beige-100 py-12 px-4 text-center border-y border-beige-200">
                 <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-olive-900 mb-6">Partner With Us</h2>
-                    <p className="text-lg md:text-xl text-olive-700 mb-10 max-w-2xl mx-auto leading-relaxed">
-                        Build long-term ecological and socio-economic value through deposit works, eco-restoration, and CSR-linked plantation programs.
+                    <h2 className="text-2xl md:text-3xl font-extrabold text-olive-900 mb-4">Public Interface</h2>
+                    <p className="text-base md:text-lg text-olive-700 mb-8 max-w-2xl mx-auto leading-relaxed">
+                        For official correspondence related to forestry operations, afforestation, eco-restoration, tenders and notices, please use the contact and document sections.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Link to="/contact" className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-beige-50 bg-olive-700 hover:bg-olive-800 rounded-lg shadow-md transition-all hover:shadow-lg w-full sm:w-auto gap-2 border-2 border-olive-700">
-                            <i className="fas fa-envelope"></i> Contact Us
+                        <Link to="/contact" className="inline-flex items-center justify-center px-8 py-3.5 text-base font-bold text-beige-50 bg-olive-700 hover:bg-olive-800 rounded-lg w-full sm:w-auto gap-2 border-2 border-olive-700">
+                            <i className="fas fa-envelope"></i> Contact Office
                         </Link>
-                        <Link to="/contact" className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-olive-900 bg-gold-400 hover:bg-gold-300 rounded-lg shadow-md transition-all hover:shadow-lg w-full sm:w-auto gap-2 border-2 border-gold-400">
-                            <i className="fas fa-handshake"></i> Partner With Us
+                        <Link to="/downloads" className="inline-flex items-center justify-center px-8 py-3.5 text-base font-bold text-olive-900 bg-gold-400 hover:bg-gold-300 rounded-lg w-full sm:w-auto gap-2 border-2 border-gold-400">
+                            <i className="fas fa-download"></i> Document Center
                         </Link>
                     </div>
                 </div>
             </section>
+
 
             {/* How MPFSDC works (factual, non-numeric) */}
             <section className="bg-white py-16 px-4 border-b border-beige-200">

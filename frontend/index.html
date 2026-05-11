@@ -2,9 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/logo_no-bg.png" />
+    <link rel="apple-touch-icon" href="/logo_no-bg.png" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MPFSDC - Madhya Pradesh Forest State Development Corporation</title>
+    <meta name="theme-color" content="#143B2E" />
+    <meta name="robots" content="index,follow" />
+
+    <title>MPFSDC | Madhya Pradesh Forestry and Forest Development Portal</title>
+
+    <meta name="description" content="Official public information portal of Madhya Pradesh Rajya Van Vikas Nigam (MPRVVN / MPFSDC) for forestry operations, tenders, e-auctions, and document downloads." />
+    <link rel="canonical" href="https://mpfsdc.vercel.app/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MPRVVN / MPFSDC" />
+    <meta property="og:title" content="MPFSDC | Madhya Pradesh Forestry and Forest Development Portal" />
+    <meta property="og:description" content="Official public information portal of Madhya Pradesh Rajya Van Vikas Nigam (MPRVVN / MPFSDC) for forestry operations, tenders, e-auctions, and document downloads." />
+    <meta property="og:url" content="https://mpfsdc.vercel.app/" />
+    <meta property="og:image" content="https://mpfsdc.vercel.app/logo_no-bg.png" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MPFSDC | Madhya Pradesh Forestry and Forest Development Portal" />
+    <meta name="twitter:description" content="Official public information portal of Madhya Pradesh Rajya Van Vikas Nigam (MPRVVN / MPFSDC) for forestry operations, tenders, e-auctions, and document downloads." />
+    <meta name="twitter:image" content="https://mpfsdc.vercel.app/logo_no-bg.png" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -59,7 +82,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "GovernmentOrganization",
+        "name": "Madhya Pradesh Rajya Van Vikas Nigam (MPRVVN)",
+        "url": "https://mpfsdc.vercel.app/",
+        "logo": "https://mpfsdc.vercel.app/logo_no-bg.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bhopal",
+          "addressRegion": "Madhya Pradesh",
+          "addressCountry": "IN"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "MPRVVN / MPFSDC",
+        "url": "https://mpfsdc.vercel.app/",
+        "logo": "https://mpfsdc.vercel.app/logo_no-bg.png"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "MPRVVN / MPFSDC",
+        "url": "https://mpfsdc.vercel.app/",
+        "inLanguage": "en"
+      }
+    </script>
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>

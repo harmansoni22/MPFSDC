@@ -48,7 +48,7 @@ const Header = () => {
 
                 {/* Logo + Search bar */}
                 <div className="bg-beige-50 border-b border-beige-200">
-                    <div className="w-full px-4 xl:px-8 py-3 flex items-center justify-between gap-6">
+                    <div className="w-full px-4 xl:px-8 py-2.5 flex items-center justify-between gap-6">
                         <Link to="/" className="flex items-center gap-4 group flex-shrink-0">
                             <img src="/logo_no-bg.png" alt="MPRVVN logo" className="w-16 h-16 object-contain" />
                             <div className="hidden sm:block">
@@ -68,7 +68,8 @@ const Header = () => {
                                 aria-label="Open search"
                             >
                                 <i className="fas fa-search text-olive-400 group-hover:text-olive-600 transition-colors"></i>
-                                <span className="flex-1 text-left">Search pages, tenders, services…</span>
+                                <span className="flex-1 text-left">Search notices, tenders, circulars...</span>
+
                                 <span className="text-[10px] font-mono text-olive-400 bg-beige-100 border border-beige-200 px-1.5 py-0.5 rounded">Ctrl+K</span>
                             </button>
 
